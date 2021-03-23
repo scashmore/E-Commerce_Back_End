@@ -37,8 +37,8 @@ router.get('/:id', (req, res) => {
   })
     .then(dbCategoryData => {
       if (!dbCategoryData) {
-        res.status(404).json({ message: 'Category not found'}); 
-        return; 
+        res.status(404).json({ message: 'Category not found' });
+        return;
       }
       res.json(dbCategoryData);
     })
@@ -54,18 +54,50 @@ router.post('/', (req, res) => {
     category_name: req.body.category_name
   })
     .then(dbCategoryData => res.json(dbCategoryData))
-    .catch(err => {
-        console.log(error);
-        res.status(500).json(error);
-  });
+    .catch(error => {
+      console.log(error);
+      res.status(500).json(error);
+    });
 });
 
 router.put('/:id', (req, res) => {
   // update a category by its `id` value
+  Category.update(req.body, {
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(dbCategoryData => {
+      if (!dbCategoryData[0]) {
+        res.status(404).json({ message: 'Category not found' });
+        return;
+      }
+      res.json(dbCategoryData);
+    })
+    .catch(error => {
+      console.log(error);
+      res.status(500).json(error);
+    });
 });
 
 router.delete('/:id', (req, res) => {
   // delete a category by its `id` value
+  Category.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(dbCategoryData => {
+      if (!dbCategoryData) {
+        res.status(404).json({ message: 'Category not found' });
+        return;
+      }
+      res.json(dbCategoryData);
+    })
+    .catch(error => {
+      console.log(error);
+      res.status(500).json(error);
+    });
 });
 
 module.exports = router;
