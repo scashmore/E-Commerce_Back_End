@@ -10,9 +10,14 @@ This project requires dotenv, express, mysql2, and sequelize.
 
 ## Useage
 
-A user should be able to get, post, update, and remove data in any of the three categories: categories, products, and tags. The gifs below demonstrate usage.
+ First, the user must run the seeds js file in order to populate the database. Also, the schema needs to be run through workbench. 
+ <br>
+ ![GIF](/images/schema.gif)
+
+ A user should be able to get, post, update, and remove data in any of the three categories: categories, products, and tags. The gifs below demonstrate usage this.
 
 GET ALL: 
+<br>
 Categories:
 ![GIF](/images/get_all_cat.gif)
 Products:
@@ -21,6 +26,7 @@ Tags:
 ![GIF](/images/get_all_tag.gif)
 
 GET ONE:
+<br>
 Category
 ![GIF](/images/get_one_cat.gif)
 Product:
@@ -35,12 +41,14 @@ Tag:
 ![GIF](/images/post_tag.gif)
 
 UPDATE:
+<br>
 Category: 
 ![GIF](/images/update_cat.gif)
-Tage:
+Tag:
 ![GIF](/images/update_tag.gif)
 
 DELETE:
+<br>
 Category:
 ![GIF](/images/delete_cat.gif)
 Product:
