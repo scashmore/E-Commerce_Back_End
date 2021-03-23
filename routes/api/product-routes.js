@@ -50,8 +50,8 @@ router.get('/:id', (req, res) => {
   })
     .then(dbProductData => {
       if (!dbProductData) {
-        res.status(404).json({ message: 'Product not found'}); 
-        return; 
+        res.status(404).json({ message: 'Product not found' });
+        return;
       }
       res.json(dbProductData);
     })
@@ -139,20 +139,20 @@ router.delete('/:id', (req, res) => {
   // delete one product by its `id` value
   Product.destroy({
     where: {
-        id: req.params.id
+      id: req.params.id
     }
   })
     .then(dbProductData => {
-        if (!dbProductData) {
-            res.status(404).json({ message: 'Product not found'});
-            return;
-        }
-        res.json(dbProductData);
-  })
+      if (!dbProductData) {
+        res.status(404).json({ message: 'Product not found' });
+        return;
+      }
+      res.json(dbProductData);
+    })
     .catch(error => {
-        console.log(error);
-        res.status(500).json(error);
-  });
+      console.log(error);
+      res.status(500).json(error);
+    });
 });
 
 module.exports = router;
