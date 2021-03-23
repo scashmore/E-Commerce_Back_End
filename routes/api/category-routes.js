@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
     ]
   })
     .then(dbCategoryData => res.json(dbCategoryData))
-    .catch(err => {
+    .catch(error => {
       console.log(error);
       res.status(500).json(error);
     });
@@ -42,7 +42,7 @@ router.get('/:id', (req, res) => {
       }
       res.json(dbCategoryData);
     })
-    .catch(err => {
+    .catch(error => {
       console.log(error);
       res.status(500).json(error);
     });
